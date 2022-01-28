@@ -46,10 +46,9 @@ const KeepAliveWorkflow = async (githubToken, committerUsername, committerEmail,
           `"${commitMessage}"`]);
         const push = await execute('git', [
           'push',
+          '-v',
           'origin',
           'HEAD']);
-        log.log(push.stdout);
-        log.log(push.stderr);
         resolve('Dummy commit created to keep the repository active...');
       } else {
         resolve('Nothing to do...');
